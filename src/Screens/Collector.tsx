@@ -21,14 +21,14 @@ export default function Collector() {
     return (
         <View style={theme?.CollectorStyle.main_container}>
             <View style={{ flex: 1 }}>
-                <Text style={theme?.CollectorStyle.title}>What is your highest Education?</Text>
+                <Text style={theme?.CollectorStyle.title}>What's in your mind?</Text>
                 <VirtualizedList
                     data={departments}
                     initialNumToRender={4}
                     getItem={(_data, index) => _data[index]}
                     getItemCount={(_data: any) => _data.length}
                     renderItem={(item: any) => (
-                        <TouchableOpacity style={[theme?.CollectorStyle.department_btn, education === item.item && { borderColor: '#F39C12', backgroundColor: '#F39C12' }]} onPress={() => { seteducation(item.item); setIndex(item.index) }}>
+                        <TouchableOpacity style={[theme?.CollectorStyle.department_btn, education === item.item && { borderColor: '#F39C12', backgroundColor: '#F39C12' }]} onPress={() => { seteducation(item.item); setIndex(item.index); setInterest(null) }}>
                             <Text style={[education === item.item && theme?.CollectorStyle.btn_txt, { fontWeight: 500 }]}>{item.item}</Text>
                         </TouchableOpacity>
                     )}

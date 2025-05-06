@@ -1,6 +1,6 @@
 import { useTheme } from "@rneui/themed";
 import { useEffect, useState } from "react";
-import { ActivityIndicator, Image, Text, TouchableOpacity, View } from "react-native";
+import { ActivityIndicator, Text, TouchableOpacity, View } from "react-native";
 import { useTypedNavigation } from "../Types/UseTypedNavigation";
 
 
@@ -21,7 +21,7 @@ export default function GetStart() {
             } else {
                 clearInterval(interval);
             }
-        }, 100);
+        }, 200);
 
         return () => clearInterval(interval);
     }, [content, index]);
@@ -36,17 +36,17 @@ export default function GetStart() {
     function onprs() {
         setLoader(true);
         setTimeout(() => {
-            navigation.navigate('home');
+            navigation.navigate('collector');
             setLoader(false);
         }, 2000);
     }
     return (
         <View style={theme?.GetStartStyle.HeadContainer}>
             <View style={theme?.GetStartStyle.contentContainer}>
-                <Text style={[theme?.GetStartStyle.pageQuote, { color: "#F0ca1F", padding: 40, fontSize: 100 }]}>{runningText}
+                <Text style={[theme?.GetStartStyle.pageQuote, { color: "#F0ca1F", padding: 40, fontSize: 80 }]}>{runningText}
                     <Text>{blink ? <View style={{ height: 70, width: 3, backgroundColor: "#fff" }}></View> : null}</Text>
                 </Text>
-                {runningText == content ? <Text style={[theme?.GetStartStyle.pageQuote]}>STOP CONFUSE, START WITH CONFIDENCE</Text> : null}
+                {runningText == content ? <Text style={[theme?.GetStartStyle.pageQuote, { paddingHorizontal: 40 }]}>STOP CONFUSE, START WITH CONFIDENCE</Text> : null}
             </View>
             <View style={theme?.GetStartStyle.buttonContainer}>
                 <TouchableOpacity style={theme?.GetStartStyle.button} activeOpacity={0.7} onPress={() => onprs()}>

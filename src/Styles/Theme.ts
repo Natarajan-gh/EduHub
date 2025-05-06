@@ -1,9 +1,13 @@
 import { Theme } from "@rneui/themed";
 import { GetStartStyle } from "./GetstartStyle";
+import { HomeStyle } from "./HomeStyle";
+import { CollectorStyle } from "./CollectorStyle";
 
 
 export const StyleThemes: Theme = {
     GetStartStyle,
+    HomeStyle,
+    CollectorStyle,
     mode: "light",
     spacing: {
         xs: 0,
